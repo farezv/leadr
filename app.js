@@ -5,10 +5,22 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// routing
 var routes = require('./routes/index');
 var stats = require('./routes/stats');
 var leaderboard = require('./routes/leaderboard');
 
+// db setup
+var mongoose = require('mongoose');
+var dbUrls = require('./db');
+var mongoUrl = dbUrls.mongoUrl;
+
+// models
+var Stat = require('./models/stat');
+var User = require('./models/leaderboard');
+
+console.log(mongoUrl);
+mongoose.connect(mongoUrl);
 var app = express();
 
 // view engine setup

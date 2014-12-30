@@ -15,10 +15,6 @@ var mongoose = require('mongoose');
 var dbUrls = require('./db');
 var mongoUrl = dbUrls.mongoUrl;
 
-// models
-var Stat = require('./models/stat');
-var User = require('./models/leaderboard');
-
 console.log(mongoUrl);
 mongoose.connect(mongoUrl);
 var app = express();
@@ -35,8 +31,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/stats', stats);
-app.use('/leaderboard/statname', leaderboard);
+app.use('/stats/', stats);
+app.use('/leaderboard/', leaderboard);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -9,4 +9,4 @@ var StatSchema = new Schema({
     created_at: String
 });
 
-module.exports = mongoose.model('Stat', StatSchema);
+module.exports = mongoose.model('Stats', StatSchema);
